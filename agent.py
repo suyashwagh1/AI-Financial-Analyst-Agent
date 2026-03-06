@@ -5,7 +5,7 @@ from finance_utils import create_data_summary
 
 load_dotenv()
 
-api_key = os.getenv("GROQ_API_KEY")
+api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
 if not api_key:
     raise ValueError("GROQ_API_KEY not found. Please check your .env file.")
